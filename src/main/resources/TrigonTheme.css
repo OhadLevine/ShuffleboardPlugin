@@ -60,7 +60,7 @@
  *                                                                             *
  ******************************************************************************/
 .drawer {
-    -fx-background-color: -full-background-color;
+    -fx-background-color: -swatch-light-gray;
 }
 
 .drawer .tab-pane .tab-header-background {
