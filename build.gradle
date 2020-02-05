@@ -18,11 +18,16 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    maven {
+        url = "https://first.wpi.edu/FRC/roborio/maven/release/"
+    }
 }
 
 dependencies {
     // This dependency is used by the application.
     implementation 'com.google.guava:guava:28.0-jre'
+    //This dependency is used by the shuffleboard plugins
+    implementation(group: "edu.wpi.first.shuffleboard", name: "api", version: "2019.4.1")
 
     // Use JUnit test framework
     testImplementation 'junit:junit:4.12'
