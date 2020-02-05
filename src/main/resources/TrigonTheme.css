@@ -1,242 +1,166 @@
-@import "/edu/wpi/first/shuffleboard/app/midnight.css";
+@import "/edu/wpi/first/shuffleboard/api/material.css"; /* Material design CSS for JavaFX components */
+@import url('https://fonts.googleapis.com/css?family=Rubik:900&display=swap');
 
-.root {
-    -swatch-100: rgb(172, 224, 255);
-    -swatch-200: derive(-swatch-100, -5%);
-    -swatch-300: derive(-swatch-100, -12%);
-    -swatch-400: derive(-swatch-100, -16%);
-    -swatch-500: derive(-swatch-100, -25%);
-
-    -swatch-black: rgb(0, 0, 0);
-    -swatch-dark-gray: rgb(16, 16, 24);
-    -swatch-gray: derive(-swatch-dark-gray, +10%);
-    -swatch-light-gray: derive(-swatch-gray, +33%);
-    -swatch-dark-blue: derive(-swatch-blue, -10%);
-    -swatch-blue:  rgb(103, 187, 226);
-    -swatch-light-blue: derive(-swatch-blue, +33%);
-    -fx-background: -swatch-blue;
-    -fx-color: -swatch-blue;
-    -confirmation-color-confirmed: lime;
-    -confirmation-color-error: red;
+/*******************************************************************************
+ *                                                                             *
+ * Root                                                                        *
+ *                                                                             *
+ ******************************************************************************/
+ .root {
+    -fx-font-family: 'Rubik', sans-serif, bold, italic;
+    -procedurally-defined-tab-color: derive(-swatch-500, -12%);
+    -procedurally-defined-tab-text-color: yellow;
 }
+
 /*******************************************************************************
  *                                                                             *
  * Widget pane                                                                 *
  *                                                                             *
  ******************************************************************************/
- .widget-pane {
-    -fx-grid-line-color: -swatch-dark-gray;
-}
-
-.grid-highlight {
-    -fx-border-color: #a7a7f7;
-    -fx-background-color: #FFFFFF08;
-}
-
-.grid-highlight:colliding {
-    -fx-border-color: -swatch-500;
-    -fx-background-color: #00000008;
+.widget-pane {
+    -fx-grid-line-color: rgba(255, 255, 255, 0.1);
 }
 
 /*******************************************************************************
  *                                                                             *
- * Grid Selection                                                              *
+ * Tab Pane                                                                    *
  *                                                                             *
  ******************************************************************************/
-.grid-selection {
-    -fx-fill: #FFFFFF08;
-    -fx-stroke: #A7A7F7;
-    -fx-stroke-width: 0.25em;
+.tab-pane {
+    -fx-border-color: white;
+    -fx-border-width: 0.025em;
+    -fx-open-tab-animation: NONE;
+    -fx-close-tab-animation: NONE;
+}
+
+.tab-header-area .tab:selected .focus-indicator {
+    -fx-border-color: transparent;
+}
+
+.tab-container {
+    /* Rotate the tab container to put the close button on the left-hand side */
+    -fx-rotate: 180;
+}
+
+.tab-container > * {
+    /* Re-rotate the contents to keep the text right-side up */
+    -fx-rotate: 180;
 }
 
 /*******************************************************************************
  *                                                                             *
- * Menus                                                                       *
+ * Sources and Widget Drawer                                                   *
  *                                                                             *
  ******************************************************************************/
-.menu-bar {
+.drawer {
     -fx-background-color: -swatch-light-gray;
 }
 
-.menu-item {
-    -fx-background-color: -swatch-gray;
-}
-
-.menu:hover, .menu:selected {
+.drawer .tab-pane .tab-header-background {
     -fx-background-color: -swatch-200;
 }
 
-.context-menu {
-    -fx-background-color: -swatch-gray;
-}
-
-.menu-item:hover, .menu-item:focused {
-    -fx-background-color: -swatch-200;
-}
-
-/*******************************************************************************
- *                                                                             *
- * Text field, text area                                                       *
- *                                                                             *
- ******************************************************************************/
-.text-field, .text-area {
+.drawer .tab-pane .tab .tab-label {
     -fx-text-fill: -fx-text-base-color;
-    -underline-color: -swatch-gray;
-    -fx-border-color: -swatch-light-gray;
-}
-
-.text-field:focused, .text-area:focused {
     -fx-border-color: -swatch-200;
 }
 
-/*******************************************************************************
- *                                                                             *
- * Button, toggle button                                                       *
- *                                                                             *
- ******************************************************************************/
-.toggle-button, .button {
-    -fx-background-color: rgb(64, 64, 64);
-    -fx-text-fill: white;
-    -fx-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.70), 6.0, 0.3, 0, 2);
+.drawer .tab-pane .tab:selected .tab-label {
+    -fx-border-color: -fx-text-base-color;
 }
 
-.toggle-button:selected, .button:selected {
-    -fx-background-color: -swatch-500;
-    -fx-text-fill: white;
-}
-
-.button-raised .button .text, .button-flat .button .text {
-    -fx-text-weight: Bold;
-}
-
-.button:default {
-    -fx-background-color: -swatch-500;
-    -fx-text-fill: white;
-}
-
-.toggle-button:focused, .button:focused, .button:default:focused {
-    -fx-background-color: rgb(48, 48, 48);
-    -fx-text-fill: white;
-}
-
-.toggle-button:focused:selected {
-    -fx-background-color: derive(-swatch-500, -12%);
-    -fx-text-fill: white;
-}
-
-.toggle-button:armed, .toggle-button:selected, .button:armed, .button:default:armed {
-    -fx-background-color: -swatch-500;
-    -fx-text-fill: white;
-}
-
-/*******************************************************************************
- *                                                                             *
- * Toggle switch                                                               *
- *                                                                             *
- ******************************************************************************/
-.tile .toggle-switch > .thumb-area {
-    -fx-background-color: -swatch-light-gray, -swatch-gray;
-}
-
-.toggle-switch > .thumb-area {
-    -fx-background-color: derive(-swatch-light-gray, -25%), -swatch-dark-gray;
-}
-
-.toggle-switch > .thumb {
-    -fx-background-color: #AAAAAA;
-}
-
-.tile .toggle-switch:selected > .thumb-area,
-.toggle-switch:selected > .thumb-area {
-    -fx-background-color: -swatch-500;
-}
-
-/*******************************************************************************
- *                                                                             *
- * Progress bar                                                                *
- *                                                                             *
- ******************************************************************************/
-.progress-bar .track {
-    -fx-background-color: rgba(0, 0, 0, 0.3);
-}
-
-/*******************************************************************************
- *                                                                             *
- * Titled pane                                                                 *
- *                                                                             *
- ******************************************************************************/
-.titled-pane > .title {
+.drawer .drawer-separator {
     -fx-background-color: -swatch-light-gray;
-    -fx-text-fill: #eeeeee;
+    -fx-cursor: h-resize;
+    -fx-border-width: 0 2 0 0, 0 1 0 0;
+    -fx-border-color: -swatch-dark-gray, -swatch-gray;
+}
+
+.drawer .drawer-separator .toggle-button {
+    -fx-background-color: null;
+    -fx-text-fill: -fx-text-base-color;
+    -fx-effect: none;
+    -fx-max-width: 12 !important;
+    -fx-pref-width: 12 !important;
+    -fx-padding: 0 0 0 0;
+    -fx-cursor: hand;
+}
+
+.drawer .drawer-separator .toggle-button:hover {
+    -fx-text-fill: derive(-fx-text-base-color, 25%);
+}
+
+.drawer .drawer-separator .toggle-button:pressed {
+    -fx-text-fill: derive(-fx-text-base-color, -15%);
 }
 
 /*******************************************************************************
  *                                                                             *
- * Tree table, table view                                                      *
+ * Dashboard Tabs                                                              *
  *                                                                             *
  ******************************************************************************/
-.tree-table-view *, .table-view * {
-    -fx-border-color: transparent;
+.tab-label {
+    -fx-font-size: 15px;
 }
 
-.table-row-cell * {
-    -fx-text-fill: white;
+.tab-header-area {
+    -fx-padding: 0;
 }
 
-.tree-table-row-cell:selected, .table-row-cell:selected {
-    -fx-background-color: -swatch-light-gray;
-}
-
-.tree-table-row-cell:selected *, .table-row-cell:selected * {
-    -fx-text-fill: #f7d727;
-}
-
-.tree-table-view, .table-view {
-    -fx-background-color: -swatch-dark-gray;
-}
-
-.tree-table-view .column-header, .table-view .column-header {
-    -fx-background-color: -swatch-500;
-}
-
-.column-header-background {
-    -fx-background-color: #111111;
-}
-
-.tree-table-row-cell, .table-row-cell {
-    -fx-background-color: -swatch-gray;
-    -fx-border-color: transparent;
-}
-
-.tree-table-row-cell:empty, .tree-table-row-cell:empty:hover,
-.table-row-cell:empty, .table-row-cell:empty:hover {
+.tab {
     -fx-background-color: transparent;
+    -fx-align: center;
+    -fx-padding: 4;
+    -fx-border-radius: 0;
+    -fx-background-radius: 0;
 }
 
-.tree-table-row-cell > .tree-disclosure-node > .arrow,
-.tree-cell > .tree-disclosure-node > .arrow {
-    -fx-background-color: white;
+.tab .tab-close-button {
+    -fx-padding: 0 0 0 10px;
 }
 
-/*******************************************************************************
- *                                                                             *
- * Scroll pane                                                                 *
- *                                                                             *
- ******************************************************************************/
-.scroll-pane .corner {
-    -fx-background-color: -swatch-dark-gray;
+.tab:hover {
+    -fx-cursor: hand;
 }
 
-.scroll-bar .track-background {
-    -fx-background-color: -swatch-dark-gray !important;
+.dashboard-tabs .tab .label {
+    -fx-text-fill: white;
 }
 
-.scroll-bar .thumb {
-    -fx-background-color: -swatch-light-gray !important;
+.dashboard-tabs .tab .text-field {
+    -fx-text-fill: #DDDDDD;
+    -fx-highlight-fill: -swatch-200;
 }
 
-.scroll-bar .increment-arrow, .scroll-bar .decrement-arrow {
-    -fx-background-color: white !important;
+.dashboard-tabs .tab {
+    -fx-padding: 4 12 4 16;
+}
+
+.dashboard-tabs .tab:selected {
+    -fx-padding: 4 12 4 0;
+}
+
+.dashboard-tabs .procedurally-defined-tab .text-field,
+.dashboard-tabs .procedurally-defined-tab .label {
+    -fx-text-fill: -procedurally-defined-tab-text-color;
+}
+
+.dashboard-tabs .procedurally-defined-tab {
+    -fx-background-color: -procedurally-defined-tab-color;
+    -fx-border-width: 1;
+    -fx-border-color: -procedurally-defined-tab-color;
+}
+
+.dashboard-tabs .procedurally-defined-tab .tab-label {
+    -fx-border-color: -procedurally-defined-tab-color;
+}
+
+.dashboard-tabs .procedurally-defined-tab:selected .tab-label {
+    -fx-border-color: -procedurally-defined-tab-text-color;
+}
+
+.dashboard-tabs .procedurally-defined-tab:selected .tab-close-button {
+    -fx-background-color: -procedurally-defined-tab-text-color;
 }
 
 /*******************************************************************************
@@ -245,25 +169,43 @@
  *                                                                             *
  ******************************************************************************/
 .tile {
-    -fx-background-color: -swatch-dark-gray;
-    -fx-effect: dropshadow(gaussian, #101010, 6, 0.1, 0, 4);
+    -fx-font-size: 11pt;
+    -fx-effect: dropshadow(gaussian, #999, 6, 0.1, 0, 4);
 }
 
 .tile:selected {
-    -fx-background-color: #10102F;
-    -fx-effect: dropshadow(gaussian, -swatch-100, 6, 0.1, 0, 4);
+    -fx-effect: dropshadow(gaussian, indigo, 8, 0.00005, 0, 4);
+    -fx-background-color: #f0f0f0;
 }
 
 .tile:selected .tile-title-bar {
     -fx-background-color: -swatch-500;
 }
 
-.tile-title-bar {
-    -fx-background-color: -swatch-light-gray;
+.widget-pane:minimal-tile-titles .tile .tile-title-bar {
+    -fx-padding: -2px;
+    -fx-font-weight: none;
+    -fx-font-size: 10pt;
 }
 
-.tile .label {
-    -fx-text-fill: -fx-text-base-color;
+.widget-pane:no-tile-titles .tile .tile-title-bar,
+.widget-pane:no-tile-titles .tile .tile-title-bar * {
+    -fx-max-height: 0;
+    -fx-pref-height: 0;
+    -fx-min-height: 0;
+    -fx-managed: false;
+}
+
+.tile-title-bar {
+    -fx-padding: 4px;
+    -fx-background-color: -swatch-200;
+    -fx-font-weight: bold;
+    -fx-font-size: 11pt;
+}
+
+.tile .scroll-pane, .tile .viewport,
+.tile .property-sheet .property-pane, .tile .property-sheet .tool-bar {
+    -fx-background-color: transparent;
 }
 
 /*******************************************************************************
@@ -272,77 +214,68 @@
  *                                                                             *
  ******************************************************************************/
 .layout-stack {
-    -fx-background-color: rgba(255, 255, 255, 0.03);
-    -fx-border-color: black;
+    -fx-background-color: rgba(0, 0, 0, 0.005);
+    -fx-border-width: 1;
+    -fx-border-color: -swatch-100;
+}
+
+.layout-label {
+    -fx-padding: 0 12px 5px 12px;
+    -fx-font-size: 12px;
 }
 
 .layout-label * {
-    -fx-text-fill: #aaa;
+    -fx-text-fill: #333;
 }
 
 /*******************************************************************************
  *                                                                             *
- * List view                                                                   *
+ * Grid Highlight                                                              *
  *                                                                             *
  ******************************************************************************/
-.list-view {
-    -fx-background-color: transparent;
+.grid-highlight {
+    -fx-border-color: rgba(0, 255, 0, 0.75);
+    -fx-border-width: 0.25em;
+    -fx-background-color: rgba(255, 255, 255, 0.1);
 }
 
-.list-view .list-cell {
-    -fx-background-color: -swatch-gray;
-}
-
-.list-view .list-cell:filled:focused:selected {
-    -fx-background-color: -swatch-500;
-    -fx-text-fill: -fx-text-base-color;
-}
-
-.list-view:focused .list-cell:filled:focused:selected {
-    -fx-background-color: -swatch-100;
-}
-
-.list-view:hover .list-cell:filled:hover {
-    -fx-background-color: -swatch-light-gray;
-    -fx-text-fill: -fx-text-base-color;
-}
-
-.list-view:hover .list-cell:hover {
-    -fx-background-color: null;
-    -fx-text-fill: -fx-text-base-color;
+.grid-highlight:colliding {
+    -fx-border-color: rgba(255, 0, 0, 0.75);
+    -fx-background-color: rgba(255, 0, 0, 0.1);
 }
 
 /*******************************************************************************
  *                                                                             *
- * Combobox                                                                    *
+ * Grid Selection                                                              *
  *                                                                             *
  ******************************************************************************/
-.combo-box-base, .choice-box {
-    -fx-border-color: -swatch-light-gray;
+.grid-selection {
+    -fx-fill: rgba(0, 255, 0, 0.1);
+    -fx-stroke: rgba(0, 255, 0, 0.75);
+    -fx-stroke-width: 0.25em;
 }
 
-.combo-box-popup {
-    -fx-border-color: orange;
+/*******************************************************************************
+ *                                                                             *
+ * Widget Gallery                                                              *
+ *                                                                             *
+ ******************************************************************************/
+.widget-gallery .item {
+    -fx-border-width: 2;
+    -fx-border-color: -swatch-200;
+    -fx-border-insets: 5;
+    -fx-background-insets: 5;
+    -fx-alignment: center;
+    -fx-cursor: hand;
 }
 
-.combo-box-popup .list-view {
-    -fx-border-color: -swatch-300;
-    -fx-border-width: 1px;
-    -fx-background-color: -swatch-dark-gray;
-}
-
-.combo-box-popup .list-view .list-cell {
-    -fx-background-color: transparent;
-    -fx-border-color: none;
-}
-
-.combo-box-popup .list-view .list-cell:hover {
-    -fx-background-color: -swatch-gray;
-}
-
-.combo-box-popup .list-view .list-cell:selected {
-    -fx-background-color: -swatch-500;
-    -fx-text-fill: yellow;
+/*******************************************************************************
+ *                                                                             *
+ * Property sheet                                                              *
+ *                                                                             *
+ ******************************************************************************/
+.property-sheet .property-pane * {
+    -fx-font-size: 10pt;
 }
 
 /*******************************************************************************
@@ -350,8 +283,73 @@
  * Slider, range slider                                                        *
  *                                                                             *
  ******************************************************************************/
-.slider .axis, .range-slider .axis {
-    -fx-tick-label-fill: #eee;
+.slider .track, .range-slider .track {
+    -fx-background-color: -swatch-300;
+}
+
+.slider {
+    -fx-cursor: default;
+}
+
+.slider .thumb {
+    -fx-cursor: hand;
+}
+
+.slider:pressed .thumb {
+    -fx-cursor: move;
+}
+
+.jfx-slider {
+    -jfx-default-thumb: -swatch-300;
+    -jfx-default-track: -swatch-gray;
+}
+
+.jfx-slider .track {
+    -fx-pref-height: 4px;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Linear indicator                                                            *
+ *                                                                             *
+ ******************************************************************************/
+.linear-indicator .track {
+    -fx-pref-height: 1em;
+    -fx-background-color: -swatch-light-gray;
+}
+
+.linear-indicator:vertical .track {
+    -fx-pref-width: 1em;
+}
+
+.linear-indicator .range-bar {
+    -fx-background-color: -swatch-200;
+}
+
+.linear-indicator .low-thumb, .linear-indicator .high-thumb {
+    -fx-background-radius: 0;
+    -fx-border-radius: 0;
+    -fx-border-width: 0;
+    -fx-border-color: transparent;
+    -fx-pref-width: 0;
+    -fx-pref-height: 0;
+    -fx-background-color: transparent;
+}
+
+.linear-indicator-text {
+    -fx-text-fill: black;
+}
+
+.linear-indicator-text .text {
+    -fx-font-size: 9pt;
+}
+
+.voltage-view .range-bar {
+    -fx-background-color: linear-gradient(to bottom, gold, derive(gold, -10%));
+}
+
+.voltage-view:vertical .range-bar {
+    -fx-background-color: linear-gradient(to right, gold, derive(gold, -10%));
 }
 
 /*******************************************************************************
@@ -360,21 +358,116 @@
  *                                                                             *
  ******************************************************************************/
 .gauge {
-    -fx-needle-color: -swatch-100;
-    -fx-tick-mark-color: white;
-    -fx-major-tick-color: white;
+    -fx-needle-color: -swatch-500;
+    -fx-bar-color: -swatch-200;
+    -fx-bar-background-color: -swatch-light-gray;
+    -fx-tick-label-color: -fx-text-base-color;
+    -fx-tick-mark-color: black;
+    -fx-major-tick-color: #333;
     -fx-minor-tick-color: #aaa;
     -fx-medium-tick-color: #aaa;
+    -fx-knob-color: -swatch-light-gray;
+    -fx-unit-color: -fx-text-base-color;
+    -fx-value-color: -fx-text-base-color;
+    -fx-title-color: -fx-text-title-color;
+    -fx-subtitle-color: -fx-text-subtitle-color;
+    -fx-tick-mark-ring-visible: true;
 }
 
 /*******************************************************************************
  *                                                                             *
- * Tab pane, tabs                                                              *
+ * Dialog pane                                                                 *
  *                                                                             *
  ******************************************************************************/
-.tab-pane {
-    -fx-border-color: transparent;
+.dialog-pane .content {
+    /* Bring the content to all edges */
+    -fx-padding: 0; /* 10 0 0 10 */
 }
+
+.dialog-pane .header-panel {
+    -fx-background-color: -swatch-500;
+}
+
+.dialog-pane .header-panel .label {
+    -fx-text-fill: white;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Shuffleboard dialogs                                                        *
+ *                                                                             *
+ ******************************************************************************/
+.shuffleboard-dialog-pane .content {
+    -fx-padding: 10 10 0 24; /* top right bottom left */
+}
+
+.shuffleboard-dialog-header {
+    -fx-background-color: -swatch-500;
+    -fx-padding: 0 0 0 24;
+}
+
+.shuffleboard-dialog-header-title {
+    -fx-text-fill: white;
+    -fx-font-size: 46;
+}
+
+.shuffleboard-dialog-header-subtitle {
+    -fx-text-fill: derive(white, -10%);
+    -fx-alignment: center-right;
+}
+
+.h5 {
+    -fx-font-weight: bold;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Footer                                                                      *
+ *                                                                             *
+ ******************************************************************************/
+.footer {
+    -fx-background-color: -swatch-gray;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Update footer                                                               *
+ *                                                                             *
+ ******************************************************************************/
+.update-footer {
+    -fx-background-color: -swatch-100;
+}
+
+.update-footer > .label {
+    -fx-text-fill: black;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Playback controls                                                           *
+ *                                                                             *
+ ******************************************************************************/
+.playback-controls .button {
+    -fx-background-radius: 1;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Connection labels                                                           *
+ *                                                                             *
+ ******************************************************************************/
+.connection-indicator-area {
+    -fx-background-color: transparent;
+}
+
+/*
+.connection-indicator:connected {
+    -fx-text-fill: green;
+}
+.connection-indicator:disconnected {
+    -fx-text-fill: red;
+}
+*/
 
 /*******************************************************************************
  *                                                                             *
@@ -382,7 +475,32 @@
  *                                                                             *
  ******************************************************************************/
 .robot-drive {
-    -fx-fill: #666;
+    -fx-stroke: none;
+    -fx-fill: #333;
+}
+
+.robot-direction-vector {
+    -fx-stroke: -swatch-400;
+    -fx-fill: -fx-stroke;
+    -fx-stroke-width: 1.5;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Link labels                                                                 *
+ *                                                                             *
+ ******************************************************************************/
+.link-label {
+    -fx-underline: true;
+    -fx-cursor: hand;
+}
+
+.link-label:hover {
+    -fx-text-fill: #6dbdff;
+}
+
+.link-label:pressed {
+    -fx-text-fill: #6b8acb
 }
 
 /*******************************************************************************
@@ -391,5 +509,78 @@
  *                                                                             *
  ******************************************************************************/
 .settings-pane {
-    -fx-border-color: #171F2F;
+    -fx-border-width: 0 0 2px 0;
+    -fx-border-color: derive(-swatch-light-gray, 12%);
+}
+
+.settings-pane > .split-pane-divider {
+    -fx-padding: 0 1 0 1;
+    -fx-background-color: -swatch-light-gray;
+    -fx-background-insets: 0;
+}
+
+.settings-pane .settings-categories {
+    -fx-background-color: transparent;
+}
+
+.settings-pane .settings-categories .tree-cell {
+    -fx-background-color: transparent;
+}
+
+.settings-pane .settings-categories:focused .tree-cell:selected {
+    -fx-background-color: -swatch-100;
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.settings-pane .settings-categories .tree-cell:selected {
+    -fx-background-color: -swatch-500;
+    -fx-text-fill: -fx-text-base-color;
+}
+
+.settings-pane .settings-categories .tree-cell > .tree-disclosure-node > .arrow {
+    -fx-background-color: -fx-text-base-color;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Sendable Chooser                                                            *
+ *                                                                             *
+ ******************************************************************************/
+.combobox-chooser .confirmation-label,
+.split-button-chooser .confirmation-label {
+    -fx-text-fill: -confirmation-color-confirmed !important;
+}
+
+.combobox-chooser .confirmation-label:error,
+.split-button-chooser .confirmation-label:error {
+    -fx-text-fill: -confirmation-color-error !important;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Segmented Button                                                            *
+ *                                                                             *
+ ******************************************************************************/
+.segmented-button {
+    -fx-effect: dropshadow(gaussian, rgba(0.0, 0.0, 0.0, 0.30), 6.0, 0.3, 0, 2);
+}
+
+.segmented-button .toggle-button {
+    -fx-effect: none;
+}
+
+.segmented-button .toggle-button:selected {
+    -fx-background-color: -swatch-500;
+}
+
+.segmented-button .toggle-button.left-pill {
+    -fx-background-radius: 4 0 0 4;
+}
+
+.segmented-button .toggle-button.right-pill {
+    -fx-background-radius: 0 4 4 0;
+}
+
+.segmented-button .toggle-button.only-button {
+    -fx-background-radius: 4 4 4 4;
 }
