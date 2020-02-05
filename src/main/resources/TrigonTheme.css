@@ -6,4 +6,15 @@
     -swatch-300: derive(-swatch-100, -12%);
     -swatch-400: derive(-swatch-100, -16%);
     -swatch-500: derive(-swatch-100, -25%);
+
+    -swatch-dark-gray: rgb(16, 16, 24);
+    -swatch-gray: derive(-swatch-dark-gray, +10%);
+    -swatch-light-gray: derive(-swatch-gray, +33%);
+    -swatch-dark-blue: rgb(0, 4, 58);
+    -swatch-blue: derive(-swatch-dark-blue, +10%);
+    -swatch-light-blue: derive(-swatch-blue, +33%);
+    -fx-background: -swatch-blue;
+    -fx-color: -swatch-blue;
+    -confirmation-color-confirmed: lime;
+    -confirmation-color-error: red;
 }
