@@ -7,6 +7,13 @@
  *                                                                             *
  ******************************************************************************/
  .root {
+    -semi-opaque-blue: rgba(0, 140, 255, 0.75);
+    -full-background-color: -swatch-light-gray;
+    -swatch-100: #BBDEFB;
+    -swatch-200: #90CAF9;
+    -swatch-300: #64BEF6;
+    -swatch-400: #42A5F5;
+    -swatch-500: #2196F3;
     -fx-font-family: 'Rubik', sans-serif, bold, italic;
     -procedurally-defined-tab-color: derive(-swatch-500, -12%);
     -procedurally-defined-tab-text-color: yellow;
@@ -53,7 +60,7 @@
  *                                                                             *
  ******************************************************************************/
 .drawer {
-    -fx-background-color: -swatch-light-gray;
+    -fx-background-color: -full-background-color;
 }
 
 .drawer .tab-pane .tab-header-background {
@@ -70,7 +77,7 @@
 }
 
 .drawer .drawer-separator {
-    -fx-background-color: -swatch-light-gray;
+    -fx-background-color: -full-background-color;
     -fx-cursor: h-resize;
     -fx-border-width: 0 2 0 0, 0 1 0 0;
     -fx-border-color: -swatch-dark-gray, -swatch-gray;
@@ -174,7 +181,7 @@
 }
 
 .tile:selected {
-    -fx-effect: dropshadow(gaussian, indigo, 8, 0.00005, 0, 4);
+    -fx-effect: dropshadow(gaussian, rgb(0, 24, 130), 8, 0.00005, 0, 4);
     -fx-background-color: #f0f0f0;
 }
 
@@ -234,7 +241,7 @@
  *                                                                             *
  ******************************************************************************/
 .grid-highlight {
-    -fx-border-color: rgba(0, 255, 0, 0.75);
+    -fx-border-color: -semi-opaque-blue;
     -fx-border-width: 0.25em;
     -fx-background-color: rgba(255, 255, 255, 0.1);
 }
@@ -250,8 +257,8 @@
  *                                                                             *
  ******************************************************************************/
 .grid-selection {
-    -fx-fill: rgba(0, 255, 0, 0.1);
-    -fx-stroke: rgba(0, 255, 0, 0.75);
+    -fx-fill: rgba(0, 162, 255, 0.205);
+    -fx-stroke: -semi-opaque-blue;
     -fx-stroke-width: 0.25em;
 }
 
@@ -337,7 +344,7 @@
 }
 
 .linear-indicator-text {
-    -fx-text-fill: black;
+    -fx-text-fill: -swatch-dark-gray;
 }
 
 .linear-indicator-text .text {
