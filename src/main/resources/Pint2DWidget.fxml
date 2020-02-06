@@ -1,5 +1,5 @@
 <VBox xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.widget.Point2DWidget"
+      fx:controller="customplugins.Point2DWidget"
       fx:id="root"
       minWidth="64" minHeight="48"
       spacing="4">
