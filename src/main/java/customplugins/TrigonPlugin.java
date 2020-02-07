@@ -5,9 +5,7 @@ import edu.wpi.first.shuffleboard.api.plugin.Plugin;
 import edu.wpi.first.shuffleboard.api.theme.Theme;
 import edu.wpi.first.shuffleboard.api.widget.ComponentType;
 import edu.wpi.first.shuffleboard.api.widget.WidgetType;
-
 import java.util.List;
-
 import com.google.common.collect.ImmutableList;
 
 @Description(
@@ -16,7 +14,7 @@ import com.google.common.collect.ImmutableList;
     version = "2020.1.0",
     summary = "Trigons color theme plugin"
 )
-public final class TrigonPlugin extends Plugin {
+public class TrigonPlugin extends Plugin {
 
   private final Theme TrigonTheme = new Theme(getClass(), "Trigon Theme", "TrigonTheme.css");
 

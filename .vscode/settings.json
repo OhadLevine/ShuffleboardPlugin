@@ -1,3 +1,4 @@
 {
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.home": "/Users/Public/wpilib/2020/jdk",
+    "java.configuration.updateBuildConfiguration": "automatic"
 }
