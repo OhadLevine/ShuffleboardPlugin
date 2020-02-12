@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.control.Button?>
-
-<GridPane xmlns:fx="http://javafx.com/fxml/1" fx:controller="customplugins.ButtonWidget" fx:id="buttonWidgetPane">
-    <Button text="PUSH ME!!!" />
-</GridPane>

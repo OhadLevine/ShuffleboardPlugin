@@ -3,12 +3,31 @@
  */
 package customplugins;
 
-public class App {
-    public String getGreeting() {
-        return "Hello world.";
-    }
+import com.google.common.collect.ImmutableList;
+import edu.wpi.first.shuffleboard.api.plugin.Description;
+import edu.wpi.first.shuffleboard.api.plugin.Plugin;
+import edu.wpi.first.shuffleboard.api.widget.ComponentType;
+import edu.wpi.first.shuffleboard.api.widget.WidgetType;
 
-    public static void main(String[] args) {
-        System.out.println(new App().getGreeting());
+import java.util.List;
+
+@Description(
+        group = "TRIGON 5990",
+        name = "TrigonPlugins",
+        version = "1.0.0",
+        summary = "Trigons plugins"
+)
+public class App extends Plugin {
+
+//    private final Theme TrigonTheme = new Theme(getClass(), "Trigon Theme", "TrigonTheme.css");
+
+//    @Override
+//    public List<Theme> getThemes() {
+//        return ImmutableList.of(TrigonTheme);
+//    }
+
+    @Override
+    public List<ComponentType> getComponents() {
+        return ImmutableList.of(WidgetType.forAnnotatedWidget(ButtonWidget.class));
     }
 }
